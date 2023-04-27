@@ -18,29 +18,29 @@ class lunar_starship(Node):
         #Initial state vector
         self.declare_parameter('h_0', 0.0) # Initial altitude, m
         self.declare_parameter('lat_0', 0.0) # Initial latitude, deg
-        self.declare_parameter('long_0', 0.0) # Initial longtitude, deg
+        self.declare_parameter('long_0', 0.0) # Initial longitude, deg
         self.declare_parameter('vn_0', 0.0) # Initial 'north' velocity, m/s
         self.declare_parameter('ve_0', 0.0) # Initial 'east' velocity, m/s
         self.declare_parameter('vd_0', 0.0) # Initial 'down' velocity, m/s
         self.declare_parameter('m_fuel_0', 3543000.0)  # Initial fuel mass, kg
 
         #Target state vector
-        self.declare_parameter('h_f', 15000) # target altitude, m
-        self.declare_parameter('lat_f', 1.0) # target latitude, deg
-        self.declare_parameter('long_f', 0.0) # target longtitude, deg
+        self.declare_parameter('h_f', 15000.0) # target altitude, m
+        self.declare_parameter('lat_f', 3.0) # target latitude, deg
+        self.declare_parameter('long_f', 0.0) # target longitude, deg
         self.declare_parameter('vn_f', 1700.0) # target 'north' velocity, m/s
         self.declare_parameter('ve_f', 0.0) # target 'east' velocity, m/s
         self.declare_parameter('vd_f', 0.0) # target 'down' velocity, m/s
-        self.declare_parameter('m_fuel_f', 3543000.0)  # target fuel mass, kg
+        self.declare_parameter('m_fuel_f', 1000.0)  # target fuel mass, kg
         
         #Additional params
         self.declare_parameter('dry_mass', 85000.0 ) # Dry mass, kg
         self.declare_parameter('Fthrustmax', 20295000.0) # Maximum engines thrust, N
         self.declare_parameter('Isp', 308.0) # Impulse, sec
 
-        self.declare_parameter('simulation_step', 10.0) # Simulation step duration
+        self.declare_parameter('simulation_step', 1.0) # Simulation step duration
 
-        self.declare_parameter('publish_freq', 5.0)   
+        self.declare_parameter('publish_freq', 1.0)   
 
         self.h_0 = self.get_parameter('h_0').get_parameter_value().double_value
         self.lat_0 = self.get_parameter('lat_0').get_parameter_value().double_value
@@ -86,7 +86,7 @@ class lunar_starship(Node):
         xf0 = [self.h_f, self.lat_f, self.long_f, self.vn_f,  self.ve_f,  self.vd_f,  self.m_fuel_f] # target conditions
         x00 = [self.h_0, self.lat_0, self.long_0, self.vn_0,  self.ve_0,  self.vd_0,  self.m_fuel_0] #starting conditions
         lbx = [  0,      -90,  -90,   -10000,  -10000,  -10000,      0]
-        ubx = [50000,    +90,  +90,    10000,   10000,   10000,    self.m_fuel_f]
+        ubx = [50000,    +90,  +90,    10000,   10000,   10000,    self.m_fuel_0]
         lbu = [ -u_max,  -u_max,  -u_max] #fn, fe, fd
         ubu = [  u_max,   u_max,   u_max] #fn, fe, fd
         btf = [10, 10000] # tf_min tf_max
