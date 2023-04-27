@@ -73,6 +73,61 @@ def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
          ocp_tf0: int = 10, ocp_x00: list = [], ocp_xf0: list = [], ocp_lbx: list = [], 
          ocp_ubx: list = [], ocp_lbu: list = [], ocp_ubu: list = [], ocp_btf: list = [],
          target: list = [0,0,0,0,0,0,0], simulation_step: float = 1):
+    
+    '''
+    Lulav Space optimal control problems solver connected with scipy.ode solver. The main purpose is
+    a real dynamics function integration with controls input provided by MPOPT solver in real-time 
+    closed loop.
+    Parameters
+    ----------
+    theo_dyn_func : Function (x,u,t)
+        A theoretical dynamic function with simulation subject dynamics expressions. Input must be '(x, u, t)', output must match the states vector.
+
+    real_dyn_func : Function (x,u,t)
+        A real dynamic function with simulation subject dynamics expressions. Input must be '(x, u, t)', output must match the states vector.
+
+    term_cost : Function (xf, tf, x0, t0)
+        Terminal cost function. Input must be '(xf, tf, x0, t0)'. Output parameters will be minimized during optimization. 
+
+    path_constr : Function (x, u, t)
+        Path constraints function. Input must be '(x, u, t)'.
+
+    runn_cost : Function (x, u, t)
+        Running cost function. Input must be '(x, u, t)'.      
+
+    term_constr : Function (xf, tf, x0, t0)
+        Terminal constraints function. Input must be '(xf, tf, x0, t0)'.
+
+    ocp_tf0 : int
+        initial guess for simulation duration
+    ocp_x00 : list
+        initial guess for initial states values. The lengh must match the number of states.
+    ocp_xf0 : list
+        initial guess for final states values. The lengh must match the number of states.
+    ocp_lbx : list
+        lower bounds for states values. The lengh must match the number of states.
+    ocp_ubx : list
+        upper bounds for states values. The lengh must match the number of states.
+    ocp_lbu : list
+        lower bounds for controls values. The lengh must match the number of controls.
+    ocp_ubu : list
+        upper bounds for controls values. The lengh must match the number of controls.
+    ocp_btf : list
+        lower and upper bounds for time.
+    target : list
+        list of final values of states. Used for real dynamic function calculation.
+    simulation_step : float
+        the real dynamic function calculations step duration
+
+    Returns
+    -------
+    x : List of lists 
+        2-dimensional array of interpolated states
+    u : List of lists 
+        2-dimensional array of interpolated controls
+    t : List 
+        interpolated time grid
+    '''
 
     ocp = mp_l.OCP(n_states=7, n_controls=3)
 
