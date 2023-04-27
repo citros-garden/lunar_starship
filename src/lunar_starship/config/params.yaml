@@ -6,16 +6,17 @@ lopt_dynamics:
     vn_0: 0.0
     ve_0: 0.0
     vd_0: 0.0
-    h_f: 10000.0
+    m_fuel_0: 3543000
+    h_f: 15000.0
     lat_f: 1.0
     long_f: 0.0
-    vn_f: 1500.0
+    vn_f: 1700.0
     ve_f: 0.0
     vd_f: 0.0
+    m_fuel_f: 3543000
     dry_mass: 85000.0
-    fuel_mass: 3543000
     Fthrustmax: 20295000
     Isp: 308
-    simulation_step: 1
-    publish_freq: 0.1
+    simulation_step: 10
+    publish_freq: 5.0
     

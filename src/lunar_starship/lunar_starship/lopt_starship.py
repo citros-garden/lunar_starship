@@ -6,9 +6,9 @@ from typing import Callable
 
 def get_variables(post, stage_res): #Getting states values from solver and interpolating 
     
-    x,u,t,a = post.get_data(phases=[0])
+    x,u,t,a = post.get_data(phases=[0], interpolate = True)
     
-    t = [t[i][0] for i in range(len(t))]
+    t = [t[i] for i in range(len(t))]
     stage_res.t = interp1d(t, t, kind='cubic', fill_value="extrapolate")
 
     stage_res.h=interp1d(t, x[:,0], kind='cubic', fill_value="extrapolate")
@@ -53,15 +53,15 @@ class Stage_result(object): #Defining a class for results
         pass
     
     def add_states(self, stage_res, moment): #Manually adding results into Stage_result object for output
-        self.t.append(moment)
-        self.h.append(stage_res.h(0))
-        self.lat.append(stage_res.lat(0))
-        self.long.append(stage_res.long(0))
-        self.vn.append(stage_res.vn(0))
-        self.ve.append(stage_res.ve(0))
-        self.vd.append(stage_res.vd(0))
-        self.m_fuel.append(stage_res.m_fuel(0))
-        self.u.append([stage_res.u[0](0), stage_res.u[1](0), stage_res.u[2](0)])
+        self.t.append(float(moment))
+        self.h.append(float(stage_res.h(0)))
+        self.lat.append(float(stage_res.lat(0)))
+        self.long.append(float(stage_res.long(0)))
+        self.vn.append(float(stage_res.vn(0)))
+        self.ve.append(float(stage_res.ve(0)))
+        self.vd.append(float(stage_res.vd(0)))
+        self.m_fuel.append(float(stage_res.m_fuel(0)))
+        self.u.append([float(stage_res.u[0](0)), float(stage_res.u[1](0)), float(stage_res.u[2](0))])
 
         return self
 
@@ -73,6 +73,8 @@ def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
          ocp_tf0: int = 10, ocp_x00: list = [], ocp_xf0: list = [], ocp_lbx: list = [], 
          ocp_ubx: list = [], ocp_lbu: list = [], ocp_ubu: list = [], ocp_btf: list = [],
          target: list = [0,0,0,0,0,0,0], simulation_step: float = 1):
+
+    ocp = mp_l.OCP(n_states=7, n_controls=3)
 
     if ocp_tf0:
         ocp.tf0[0] = ocp_tf0 # guess tf
@@ -98,8 +100,6 @@ def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
     MoonMass=7.342e22 #kg #real-world value is 7.342*10**(22) kg
     MoonRadius = 1737.1*1000
     Mu_Moon=G*MoonMass
-
-    ocp = mp_l.OCP(n_states=7, n_controls=3)
 
     def init_real_flight(theo_stage_res, prev_real_stage_res, step): #Initializing stage with another dynamics
 
@@ -205,41 +205,3 @@ def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
     u_output = real_stage_res_output.u
     t_output = real_stage_res_output.t
     return (x_output, u_output, t_output)
-
-    
-# if __name__ == "__main__":
-
-#     #Satellite settings
-#     SatMass_dry=85e3 #kg Dry sat mass
-
-#     Mprop0=900e3+2643e3 #starting prop mass (kg)
-#     Fthrustmax=20295000  #maximum thrust (N)
-#     Isp=308 #Impulse (sec)
-
-#     # Initial conditions
-#     h_0 = 0
-
-#     lat_0 = 0 #deg
-#     long_0 = 0 #deg
-
-#     vn_0 = 0
-#     ve_0 = 0 
-#     vd_0 = 0
-
-#     # Target conditions
-#     h_f = 10000
-    
-#     lat_f = 1 #deg
-#     long_f = 0 #deg
-
-#     vn_f = 1000
-#     ve_f = 0 
-#     vd_f = 0    
-    
-#     simulation_step=1 #Setting dt for simulation
-
-#     start = Situation(h_0, lat_0, long_0, vn_0, ve_0, vd_0, Mprop0)
-
-#     target = Situation(h_f, lat_f, long_f, vn_f, ve_f, vd_f, Mprop0)
-    
-#     solve(SatMass_dry, Fthrustmax, Isp, start, target, simulation_step)
