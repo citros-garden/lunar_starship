@@ -14,6 +14,8 @@ class lunar_starship(Node):
         
         self.state_pub = self.create_publisher(Float64MultiArray , '/lunar_starship/state', 10)
 
+        self.get_logger().info(f"Starting lunar_starship version = 0.0.2")
+
         #Defining states
         #Initial state vector
         self.declare_parameter('h_0', 0.0) # Initial altitude, m
@@ -92,7 +94,7 @@ class lunar_starship(Node):
         btf = [10, 10000] # tf_min tf_max
 
         # It's necessary to define some functions for OCP. 
-        # They will be used in the 'lopt.solve' function call later.
+        # They will be used in the 'lopt.solve' function call.
 
         # Defining terminal cost function
         def terminal_cost0(xf,tf,x0,t0):
@@ -175,7 +177,8 @@ class lunar_starship(Node):
 
         #################################
         # Calling simulation function using parameters and functions declared above
-        self.res_x, self.res_u, self.res_t = lopt.solve(theo_dyn_func = dynamics0,
+        self.res_x, self.res_u, self.res_t = lopt.solve(self,
+                                                        theo_dyn_func = dynamics0,
                                                         real_dyn_func = real_dynamics0,
                                                         term_cost = terminal_cost0,
                                                         path_constr = path_constraints0,
@@ -194,6 +197,7 @@ class lunar_starship(Node):
         self.state_msg = Float64MultiArray()
         timer_period = self.get_parameter('publish_freq').get_parameter_value().double_value  # frequency of publishing
         self.timer = self.create_timer(timer_period, self.timer_callback)
+        
 
     def timer_callback(self):
 
