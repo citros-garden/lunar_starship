@@ -47,6 +47,7 @@ You can define a "real" dynamic function to test the control values computed by 
 For this example terminal cost function, path constraints and terminal constraints functions used as well: 
 
 1. Terminal contraints (we want to start from the given initial conditions and finish with the given final conditions):
+
 $$
 b_{min}^{(g)} \le b\big[x^{(1)}(t_0^{(1)}),...,x^{(P)}(t_0^{(P)}),t_0^{(1)},...,t_0^{(P)},x^{(1)}(t_f^{(1)}),...,x^{(P)}(t_f^{(1)}),...,t_f^{(P)},q^{(1)},...,q^{(P)},s \big] \le b_{max}^{(g)}
 $$
@@ -57,11 +58,13 @@ x(t_f) = x_f=[h_f, \phi_f, \lambda_f, v_{{N}_f},v_{{E}_f},v_{{D}_f}, m_{{fuel}_f
 $$ 
 
 2. Path constraints (we need to limit controls values within the maximum possible thrust):
+
 $$
 c_{min}^{(p)} \le c^{(p)} \Big[x^{(p)}, y^{(p)}, t^{(p)} \Big] \le c_{max}^{(p)},
 $$
 
 3. Cost function:
+
 $$
 J = \phi \big[x^{(1)}(t^{(1)}_0),..., x^{(P)}(t^{(P )}_0), t^{(1)}_0, . . . , t^{(P)}_0, x^{(1)}(t^{(1)}_f), . . . , x^{(P )}(t^{(P )}_f), t^{(1)}_f, . . . , t^{(P )}_f, q^{(1)}, . . . , q^{(P )}, s \big]
 $$ 
