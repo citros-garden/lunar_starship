@@ -95,7 +95,7 @@ $$
 
 ## Algorithmic representation
 
-![gif](/docs/img/Flowchart.jpg "Maneuver example")
+![gif](/docs/img/Flowchart.jpeg "Maneuver example")
 
 # Installation
 1. Clone the repository:
