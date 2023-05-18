@@ -52,11 +52,6 @@ $$
 b_{min}^{(g)} \le b\big[x^{(1)}(t_0^{(1)}),...,x^{(P)}(t_0^{(P)}),t_0^{(1)},...,t_0^{(P)},x^{(1)}(t_f^{(1)}),...,x^{(P)}(t_f^{(1)}),...,t_f^{(P)},q^{(1)},...,q^{(P)},s \big] \le b_{max}^{(g)}
 $$
 
-$$
-x(t_0) = x_0=[h_0, \phi_0, \lambda_0, v_{{N}_0},v_{{E}_0},v_{{D}_0}, m_{{fuel}_0}] \\
-x(t_f) = x_f=[h_f, \phi_f, \lambda_f, v_{{N}_f},v_{{E}_f},v_{{D}_f}, m_{{fuel}_f}]
-$$ 
-
 2. Path constraints (we need to limit controls values within the maximum possible thrust):
 
 $$
