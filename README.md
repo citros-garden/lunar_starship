@@ -94,8 +94,7 @@ $$
 
 
 ## Algorithmic representation
-
-![gif](/docs/img/Flowchart.jpeg "Maneuver example")
+<img src="docs/img/Flowchart.jpeg"  width="35%" height="10%">
 
 # Installation 🛫
 1. Clone the repository:
