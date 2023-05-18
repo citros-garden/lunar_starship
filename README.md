@@ -1,4 +1,4 @@
-# General Information
+# General Information 🌍
 This example provides an array of time dependent values of states computed by solving non-linear optimal control problems(OCP) in the standard Bolza form using pseudo-spectral collocation methods and adjusted using an additional real dynamic function. The OCP solver used in this example is MPOPT (based on IPOPT) library modified by Lulav Space team.
 
 The dynamic function is:
@@ -97,7 +97,7 @@ $$
 
 ![gif](/docs/img/Flowchart.jpeg "Maneuver example")
 
-# Installation
+# Installation 🛫
 1. Clone the repository:
 ```bash 
 git clone git@github.com:citros-garden/lunar_starship.git
@@ -105,7 +105,7 @@ git clone git@github.com:citros-garden/lunar_starship.git
 2. Open folder in VSCode and reopen in Docker container
 
 
-# Build
+# Build 🏗
 1. Build Ros2 packages:
 ```bash 
 colcon build
@@ -115,7 +115,7 @@ colcon build
 source install/local_setup.bash
 ```
 
-# Run
+# Run 🚀
 1. Launch Ros2 node:
 ```bash 
 ros2 launch lunar_starship launch.py
