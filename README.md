@@ -12,7 +12,8 @@ $$
 
 $$
 \dot{v_D} = f_D + \frac{\mu_L}{{(R_L + h)}^2} - \tan \phi \frac{v_{horis}^2}{R_L + h}
-\\
+$$
+$$
 \text{where } v_{horis} = \sqrt{v_N^2 + v_E^2} \text{ is the magnitude of the horizontal velocity vector } V_{horis},
 $$
 
@@ -41,6 +42,26 @@ $$
 $$
 \dot{\lambda} = \frac{v_E}{(R_L + h)\cos{\phi}}
 $$
+
+
+| Variable | Description |
+| --- | --- |
+| $$ v_n $$ | "northing" velocity |
+| $$ v_e $$ | "east" velocity |
+| $$ v_d $$ | vertical velocity |
+| $$ f_n $$ | "northing" control value |
+| $$ f_e $$ | "east" control value |
+| $$ f_d $$ | vertical control value |
+| $$ R_L $$ | Lunar radius |
+| $$ h $$ | altitude above lunar surface level |
+| $$ \phi $$ | latitude |
+| $$ \lambda $$ | longitude |
+| $$ \mu_L $$ | standard gravitational parameter |
+| $$ m $$ | mass |
+| $$ F_{thrust} $$ | The amount of thrust |
+| $$ g_0 $$ | gravity parameter |
+| $$ I_{sp} $$ | Specific impulse |
+
 
 You can define a "real" dynamic function to test the control values computed by solving non-linear optimal control problems(OCP). This function should have the same number of outputs. 
 
