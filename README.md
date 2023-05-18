@@ -64,16 +64,10 @@ $$
 J = \phi \big[x^{(1)}(t^{(1)}_0),..., x^{(P)}(t^{(P )}_0), t^{(1)}_0, . . . , t^{(P)}_0, x^{(1)}(t^{(1)}_f), . . . , x^{(P )}(t^{(P )}_f), t^{(1)}_f, . . . , t^{(P )}_f, q^{(1)}, . . . , q^{(P )}, s \big]
 $$ 
 
-```mermaid
-%%{ init: { 'flowchart': { 'curve': 'linear' } } }%%
-flowchart TD
-    input[/input/]-- J, b, c -->MPOPT_1
-    MPOPT_1-- u --> ODE_0-->|xreal_t0|id1
-    id1{t=1...t_max}-->|xreal_t-1|MPOPT
-    MPOPT[MPOPT theoretical dynamic] -->|u| ODE[ODE real dynamic]
-    ODE -->id1
-    id1 -->output[/output/]
-```
+
+## Algorithmic representation
+
+![gif](/docs/img/Flowchart.jpg "Maneuver example")
 
 # Installation
 1. Clone the repository:
