@@ -65,7 +65,7 @@ class Stage_result(object): #Defining a class for results
 
         return self
 
-def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
+def solve(ros_node, theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
           real_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
          term_cost: Callable = lambda xf, tf, x0, t0: tf,
          path_constr: Callable = lambda x, u, t: u[0],
@@ -192,6 +192,8 @@ def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
 
     ###################################
 
+    ros_node.get_logger().info(f"Starting simulation...")
+
     # Running first iteration
     mpo = mp_l.mpopt_adaptive(ocp, 6, 4) #6.4
     mpo.colloc_scheme = 'LGR'
@@ -201,6 +203,8 @@ def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
     # Getting optimal results
     stage_res=Stage_result()
     stage_res = get_variables(post, stage_res)
+
+    ros_node.get_logger().info(f"Current simulating t = {0} s of {stage_res.t.y[-1]}")
 
     # Running with real dynamics 
     real_stage_res=Stage_result()
@@ -217,7 +221,7 @@ def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
 
     # Starting simulation
     while step<=stage_res.t.y[-1]: 
-        
+        ros_node.get_logger().info(f"Current simulating t = {time} s of {stage_res.t.y[-1]}")
         # Setting new initial conditions for reinitialized solver
         #            [ x[0],    x[1],   x[2],  x[3],   x[4],   x[5],    x[6],   x[7]  ]
         #            [   h,      lat,   long,   Vn,     Ve,     Vd,    m_dot,         ]
@@ -254,6 +258,9 @@ def solve(theo_dyn_func : Callable =  lambda x, u, t: [x[1], u[0] - 1.5],
         real_stage_res = init_real_flight(stage_res, temp_stage_res, step)
         real_stage_res_output.add_states(real_stage_res,time)
 
+        time += step
+
+    ros_node.get_logger().info(f"Simulation finished successfully!")
     x_output = [real_stage_res_output.h, real_stage_res_output.lat, real_stage_res_output.long, 
                 real_stage_res_output.vn, real_stage_res_output.ve, real_stage_res_output.vd, 
                 real_stage_res_output.m_fuel]

@@ -1,4 +1,1 @@
-[2023-04-27 15:49:16,623] [citros.citros-None-None.get_project_packages:121] [DEBUG]:  + get_project_packages ./ros_ws
-[2023-04-27 15:49:16,623] [citros.citros-None-None.get_project_packages:132] [DEBUG]: package_path: ./src/lunar_starship
-[2023-04-27 15:52:46,655] [citros.citros-None-None.get_project_packages:121] [DEBUG]:  + get_project_packages ./ros_ws
-[2023-04-27 15:52:46,656] [citros.citros-None-None.get_project_packages:132] [DEBUG]: package_path: ./src/lunar_starship
+[2023-05-02 08:06:43,226] [citros.citros-None-None.login:250] [INFO]: Authenticated!

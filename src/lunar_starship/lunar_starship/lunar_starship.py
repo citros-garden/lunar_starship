@@ -14,6 +14,8 @@ class lunar_starship(Node):
         
         self.state_pub = self.create_publisher(Float64MultiArray , '/lunar_starship/state', 10)
 
+        self.get_logger().info(f"Starting lunar_starship version = 0.0.2")
+
         #Defining states
         #Initial state vector
         self.declare_parameter('h_0', 0.0) # Initial altitude, m
@@ -77,7 +79,7 @@ class lunar_starship(Node):
         target = [self.h_f, self.lat_f, self.long_f, self.vn_f, self.ve_f, self.vd_f, self.m_fuel_f]
 
         # Calculating maximum control value for the control bounds
-        u_max = self.Fthrustmax / self.m_fuel_0
+        u_max = self.Fthrustmax / self.dry_mass
         
         # Setting bounds and guesses
         #            [ x[0],         x[1],      x[2],       x[3],       x[4],       x[5],       x[6]  ]
@@ -90,6 +92,9 @@ class lunar_starship(Node):
         lbu = [ -u_max,  -u_max,  -u_max] #fn, fe, fd
         ubu = [  u_max,   u_max,   u_max] #fn, fe, fd
         btf = [10, 10000] # tf_min tf_max
+
+        # It's necessary to define some functions for OCP. 
+        # They will be used in the 'lopt.solve' function call.
 
         # Defining terminal cost function
         def terminal_cost0(xf,tf,x0,t0):
@@ -169,15 +174,30 @@ class lunar_starship(Node):
 
             return [h_dot, lat_dot, long_dot, vn_dot, ve_dot, vd_dot, m_dot]
         
-        # Calling simulation function
-        self.res_x, self.res_u, self.res_t = lopt.solve(theo_dyn_func=dynamics0, real_dyn_func=real_dynamics0,
-         term_cost=terminal_cost0, path_constr=path_constraints0, term_constr=terminal_constraints0, 
-         ocp_tf0=tf0, ocp_btf=btf, ocp_lbu=lbu, ocp_lbx=lbx, ocp_ubu=ubu, ocp_ubx=ubx, ocp_x00=x00, ocp_xf0=xf0,
-         target=target, simulation_step=self.simulation_step)
+
+        #################################
+        # Calling simulation function using parameters and functions declared above
+        self.res_x, self.res_u, self.res_t = lopt.solve(self,
+                                                        theo_dyn_func = dynamics0,
+                                                        real_dyn_func = real_dynamics0,
+                                                        term_cost = terminal_cost0,
+                                                        path_constr = path_constraints0,
+                                                        term_constr = terminal_constraints0,
+                                                        ocp_tf0 = tf0,
+                                                        ocp_btf = btf,
+                                                        ocp_lbu = lbu,
+                                                        ocp_lbx = lbx,
+                                                        ocp_ubu = ubu,
+                                                        ocp_ubx = ubx,
+                                                        ocp_x00 = x00,
+                                                        ocp_xf0 = xf0,
+                                                        target = target,
+                                                        simulation_step = self.simulation_step)
         
         self.state_msg = Float64MultiArray()
         timer_period = self.get_parameter('publish_freq').get_parameter_value().double_value  # frequency of publishing
         self.timer = self.create_timer(timer_period, self.timer_callback)
+        
 
     def timer_callback(self):
 
