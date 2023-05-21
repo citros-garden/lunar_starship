@@ -1,0 +1,167 @@
+{
+  "configById": {
+    "Plot!338qp1i": {
+      "paths": [
+        {
+          "value": "/lunar_starship/state.data[0]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot"
+    },
+    "Plot!3i4ap1r": {
+      "paths": [
+        {
+          "value": "/lunar_starship/state.data[1]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot",
+      "followingViewWidth": 100
+    },
+    "Plot!29zx0ln": {
+      "paths": [
+        {
+          "value": "/lunar_starship/state.data[2]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot",
+      "followingViewWidth": 100
+    },
+    "Plot!2kt1jyo": {
+      "paths": [
+        {
+          "value": "/lunar_starship/state.data[3]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot"
+    },
+    "Plot!b1bmmb": {
+      "paths": [
+        {
+          "value": "/lunar_starship/state.data[5]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot",
+      "followingViewWidth": 100
+    },
+    "Plot!47ip658": {
+      "paths": [
+        {
+          "value": "/lunar_starship/state.data[4]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot",
+      "followingViewWidth": 100
+    },
+    "Plot!1f2nvrc": {
+      "paths": [
+        {
+          "value": "/lunar_starship/state.data[6]",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot",
+      "followingViewWidth": 100
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "first": "Plot!338qp1i",
+    "second": {
+      "first": {
+        "first": "Plot!3i4ap1r",
+        "second": "Plot!29zx0ln",
+        "direction": "column"
+      },
+      "second": {
+        "first": {
+          "first": "Plot!2kt1jyo",
+          "second": "Plot!b1bmmb",
+          "direction": "row"
+        },
+        "second": {
+          "first": "Plot!47ip658",
+          "second": "Plot!1f2nvrc",
+          "direction": "row"
+        },
+        "direction": "column"
+      },
+      "direction": "row",
+      "splitPercentage": 35.90361445783132
+    },
+    "direction": "row",
+    "splitPercentage": 27.928692699490664
+  }
+}
