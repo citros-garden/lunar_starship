@@ -1,5 +1,4 @@
-/node_modules
-/.citros
+.citros
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -22,6 +21,8 @@ lib64/
 parts/
 sdist/
 var/
+install/
+log/
 wheels/
 share/python-wheels/
 *.egg-info/

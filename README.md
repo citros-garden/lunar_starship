@@ -163,3 +163,9 @@ ros2 launch lunar_starship launch.py
 
 # Citros usage 🛸
 Although you can get simulation results using FoxGlove, the best way to work with such simulations and process the results is Citros! With its power, it is possible to create complex data processing scenarios, including the construction of more complex graphs, mathematical analysis and other high-level processing methods.
+
+
+# Extras
+## FoxGlove examples
+![png](/docs/img/img0.png "FoxGlove example")
+![png](/docs/img/img1.png "FoxGlove example")
