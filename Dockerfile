@@ -38,7 +38,7 @@ RUN sudo apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* 
 RUN  pip install mcap-ros2-support
 
-WORKDIR /workspaces/poliastro
+WORKDIR /workspaces/lunar_starship
 COPY . .
 RUN colcon build
 
