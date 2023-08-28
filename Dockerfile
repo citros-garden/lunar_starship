@@ -45,6 +45,6 @@ RUN colcon build
 RUN pip install citros
 
 RUN chmod +x ros2_entrypoint.sh
-ENTRYPOINT ["/app/ros2_entrypoint.sh"]
+ENTRYPOINT ["/workspaces/lunar_starship/ros2_entrypoint.sh"]
 
 CMD ["bash"]
