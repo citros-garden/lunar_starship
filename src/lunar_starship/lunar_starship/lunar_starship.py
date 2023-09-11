@@ -170,7 +170,7 @@ class lunar_starship(Node):
             vd_dot = fu_2(t) + g - (vn**2 + ve**2) * r_inv
             long_dot = ve * r_inv /(np.cos(lat))
             
-            m_dot = - self.Fthrustmax/(self.g0 * self.Isp)
+            m_dot = - self.Fthrustmax*0.95/(self.g0 * self.Isp)
 
             return [h_dot, lat_dot, long_dot, vn_dot, ve_dot, vd_dot, m_dot]
         
@@ -196,7 +196,7 @@ class lunar_starship(Node):
         
         self.state_msg = Float64MultiArray()
         timer_period = self.get_parameter('publish_freq').get_parameter_value().double_value  # frequency of publishing
-        self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.timer = self.create_timer(1/timer_period, self.timer_callback)
         
 
     def timer_callback(self):
