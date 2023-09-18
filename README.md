@@ -195,11 +195,7 @@ Manual plot layout configuration: we have 7 states in the output messages, so we
 
 OR
 
-:::tip
-
 You can use prepared layout: Go to the ```Layout``` tab on the top panel, then click on import_layout button and select the file from foxglove_layouts folder.
-
-:::
 
 $$
 \begin{array}{|c|c|c|}
@@ -218,11 +214,8 @@ $$
 $$
 
 
-:::tip
-
 The best way to process simulation results is CITROS notebook 🍋 :)
 
-:::
 
 
 ### Run 🚀
@@ -236,11 +229,7 @@ ros2 launch lunar_starship launch.py
 
 OR
 
-:::tip
-
 You can use Visual Code Tasks: simply press ```Alt+T``` and select ```Launch``` task to build, source and launch the project automaticly.
-
-:::
 
 ![gif](img/gif0.gif "FoxGlove example")
 
