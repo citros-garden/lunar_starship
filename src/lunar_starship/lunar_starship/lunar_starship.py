@@ -66,6 +66,14 @@ class lunar_starship(Node):
         self.Fthrustmax = self.get_parameter('Fthrustmax').get_parameter_value().double_value
         self.Isp = self.get_parameter('Isp').get_parameter_value().double_value
 
+        self.get_logger().info(f"With Isp = {self.Isp}")
+
+        # Converting degrees to radians
+        self.lat_0 = self.lat_0/57.3
+        self.lat_f = self.lat_f/57.3
+        self.long_0 = self.long_0/57.3
+        self.long_f = self.long_f/57.3
+
         # Setting Moon parameters
         self.MoonRadius = 1737.1*1000
         self.Mu_Moon =  6.67*10**(-11) * 7.342e22
