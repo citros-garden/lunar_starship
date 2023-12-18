@@ -17,5 +17,5 @@ ARG WORKSPACE
 RUN python3 -m pip install scipy 
 RUN python3 -m pip install casadi
 RUN python3 -m pip install matplotlib
-RUN apt update && apt-get install -y ros-humble-rosbridge-suite 
+RUN apt update && apt-get install -y ros-humble-rosbridge-suite ros-humble-rosbag2-storage-mcap
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
