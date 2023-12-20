@@ -5,7 +5,8 @@
         {
           "value": "/lunar_starship/state.data[0]",
           "enabled": true,
-          "timestampMethod": "receiveTime"
+          "timestampMethod": "receiveTime",
+          "label": "Altitude"
         }
       ],
       "showXAxisLabels": true,
@@ -16,14 +17,15 @@
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240,
-      "foxglovePanelTitle": "Plot"
+      "foxglovePanelTitle": "Altitude"
     },
     "Plot!3i4ap1r": {
       "paths": [
         {
           "value": "/lunar_starship/state.data[1]",
           "enabled": true,
-          "timestampMethod": "receiveTime"
+          "timestampMethod": "receiveTime",
+          "label": "Latitude"
         }
       ],
       "showXAxisLabels": true,
@@ -34,7 +36,7 @@
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240,
-      "foxglovePanelTitle": "Plot",
+      "foxglovePanelTitle": "Latitude",
       "followingViewWidth": 100
     },
     "Plot!29zx0ln": {
@@ -42,7 +44,8 @@
         {
           "value": "/lunar_starship/state.data[2]",
           "enabled": true,
-          "timestampMethod": "receiveTime"
+          "timestampMethod": "receiveTime",
+          "label": "Longitude"
         }
       ],
       "showXAxisLabels": true,
@@ -53,7 +56,7 @@
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240,
-      "foxglovePanelTitle": "Plot",
+      "foxglovePanelTitle": "Longitude",
       "followingViewWidth": 100
     },
     "Plot!2kt1jyo": {
@@ -61,7 +64,8 @@
         {
           "value": "/lunar_starship/state.data[3]",
           "enabled": true,
-          "timestampMethod": "receiveTime"
+          "timestampMethod": "receiveTime",
+          "label": "Vn"
         }
       ],
       "showXAxisLabels": true,
@@ -72,14 +76,15 @@
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240,
-      "foxglovePanelTitle": "Plot"
+      "foxglovePanelTitle": "Vn"
     },
     "Plot!b1bmmb": {
       "paths": [
         {
           "value": "/lunar_starship/state.data[5]",
           "enabled": true,
-          "timestampMethod": "receiveTime"
+          "timestampMethod": "receiveTime",
+          "label": "Vd"
         }
       ],
       "showXAxisLabels": true,
@@ -90,7 +95,7 @@
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240,
-      "foxglovePanelTitle": "Plot",
+      "foxglovePanelTitle": "Vd",
       "followingViewWidth": 100
     },
     "Plot!47ip658": {
@@ -98,7 +103,8 @@
         {
           "value": "/lunar_starship/state.data[4]",
           "enabled": true,
-          "timestampMethod": "receiveTime"
+          "timestampMethod": "receiveTime",
+          "label": "Ve"
         }
       ],
       "showXAxisLabels": true,
@@ -109,7 +115,7 @@
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240,
-      "foxglovePanelTitle": "Plot",
+      "foxglovePanelTitle": "Ve",
       "followingViewWidth": 100
     },
     "Plot!1f2nvrc": {
@@ -117,7 +123,8 @@
         {
           "value": "/lunar_starship/state.data[6]",
           "enabled": true,
-          "timestampMethod": "receiveTime"
+          "timestampMethod": "receiveTime",
+          "label": "m_dot"
         }
       ],
       "showXAxisLabels": true,
@@ -128,7 +135,7 @@
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240,
-      "foxglovePanelTitle": "Plot",
+      "foxglovePanelTitle": "m_dot",
       "followingViewWidth": 100
     }
   },
