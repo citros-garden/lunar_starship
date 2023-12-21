@@ -1,0 +1,21 @@
+lunar_starship:
+  ros__parameters:
+    Fthrustmax: 20295000.0
+    Isp: 200.0
+    dry_mass: 85000.0
+    h_0: 0.0
+    h_f: 15000.0
+    lat_0: 0.0
+    lat_f: 5.0
+    long_0: 0.0
+    long_f: 0.0
+    m_fuel_0: 3543000.0
+    m_fuel_f: 3543000.0
+    publish_freq: 10.0
+    simulation_step: 1.0
+    vd_0: 0.0
+    vd_f: 0.0
+    ve_0: 0.0
+    ve_f: 0.0
+    vn_0: 0.0
+    vn_f: 1700.0

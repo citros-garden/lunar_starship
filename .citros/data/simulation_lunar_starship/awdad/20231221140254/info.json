@@ -1,0 +1,19 @@
+{
+    "branch": "foxglove-layout-fixed",
+    "commit": "64d6c1057d0292d1e76d355d9a98aef66de72956",
+    "completions": 1,
+    "cpu": 2,
+    "created_at": "2023-12-21 14:02:54",
+    "data_last_access": "",
+    "data_status": "UNLOADED",
+    "gpu": 0,
+    "memory": 265,
+    "message": "awdd",
+    "metadata": "",
+    "name": "awdad",
+    "simulation": "simulation_lunar_starship",
+    "status": "RUNNING",
+    "storage_type": "MCAP",
+    "timeout": 60,
+    "updated_at": "2023-12-21 14:02:54"
+}
