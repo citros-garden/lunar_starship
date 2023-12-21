@@ -1,14 +1,14 @@
 {
-    "CPU": 4,
-    "GPU": 4,
-    "MEM": 4096,
+    "CPU": 2,
+    "GPU": 0,
+    "MEM": 265,
     "description": "Default simulation. Change the values according to your needs.",
-    "id": "a02a9fc0-4dca-4aff-bc60-24853d8054bf",
+    "id": "57100ebf-f49e-4e7c-8cd6-052bd8d505b2",
     "launch": {
         "file": "lunar_starship.launch.py",
         "package": "lunar_starship"
     },
     "parameter_setup": "default_param_setup.json",
     "storage_type": "MCAP",
-    "timeout": 600
+    "timeout": 60
 }
