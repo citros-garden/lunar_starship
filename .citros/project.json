@@ -1,0 +1,153 @@
+{
+    "citros_cli_version": "0.1.6",
+    "cover": "",
+    "description": "",
+    "git": "git@github.com:citros-garden/lunar_starship.git",
+    "is_active": true,
+    "launches": [],
+    "packages": [
+        {
+            "cover": "",
+            "description": "The Starship launching from the moon example using MPOPT",
+            "git": "",
+            "launches": [
+                {
+                    "description": "",
+                    "name": "lunar_starship.launch.py",
+                    "path": "src/lunar_starship/launch/lunar_starship.launch.py"
+                }
+            ],
+            "maintainer": "ros",
+            "maintainer_email": "gleb@lulav.space",
+            "name": "lunar_starship",
+            "nodes": [
+                {
+                    "entry_point": "lunar_starship.lunar_starship:main",
+                    "name": "lunar_starship",
+                    "parameters": [
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "h_0",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "lat_0",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "long_0",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "vn_0",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "ve_0",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "vd_0",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "m_fuel_0",
+                            "parameterType": "float",
+                            "value": 3543000.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "h_f",
+                            "parameterType": "float",
+                            "value": 15000.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "lat_f",
+                            "parameterType": "float",
+                            "value": 5.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "long_f",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "vn_f",
+                            "parameterType": "float",
+                            "value": 1700.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "ve_f",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "vd_f",
+                            "parameterType": "float",
+                            "value": 0.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "m_fuel_f",
+                            "parameterType": "float",
+                            "value": 3543000.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "dry_mass",
+                            "parameterType": "float",
+                            "value": 85000.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "Fthrustmax",
+                            "parameterType": "float",
+                            "value": 20295000.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "Isp",
+                            "parameterType": "float",
+                            "value": 308.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "simulation_step",
+                            "parameterType": "float",
+                            "value": 1.0
+                        },
+                        {
+                            "description": "Parameter loaded from config.yaml",
+                            "name": "publish_freq",
+                            "parameterType": "float",
+                            "value": 10.0
+                        }
+                    ],
+                    "path": "src/lunar_starship/lunar_starship/lunar_starship.py"
+                }
+            ],
+            "package_xml": "src/lunar_starship/package.xml",
+            "parameters": {},
+            "path": "src/lunar_starship",
+            "setup_py": "src/lunar_starship/setup.py"
+        }
+    ],
+    "tags": []
+}
